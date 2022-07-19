@@ -1,0 +1,19 @@
+.dashboard-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.dashboard {
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+  max-width: 800px;
+  background-color: #fff;
+}
+
+.dashboard-top {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: gray;
+}

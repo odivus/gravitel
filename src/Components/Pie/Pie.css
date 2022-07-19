@@ -1,0 +1,93 @@
+.pie-wrap {
+  position: relative;
+  padding: 30px 20px;
+  width: 200px;
+  height: 330px;
+}
+
+.pie-wrapper {
+  position: absolute;
+}
+
+.pie-info-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 200px;
+}
+
+.pie-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.pie-info-header {
+  padding-bottom: 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #7a7a7a;
+}
+
+.pie-info-data {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #ff6400;
+}
+
+.pie {
+  --depth: 10px;
+  --width: 200px;
+
+  display: inline-grid;
+  width: var(--width);
+  aspect-ratio: 1;
+  position: relative;
+  place-content: center;
+}
+
+.pie-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pie-type {
+  margin-bottom: 18px;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.pie:before,
+.pie:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.pie:before {
+  inset: 0;
+  background:
+    radial-gradient(farthest-side, var(--color) 98%, #0000) top/var(--depth) var(--depth) no-repeat,
+    conic-gradient(var(--color) calc(var(--percent)*1%), #0000 0);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(99% - var(--depth)), #000 calc(100% - var(--depth)));
+  mask: radial-gradient(farthest-side, #0000 calc(99% - var(--depth)), #000 calc(100% - var(--depth)));
+}
+
+.pie:after {
+  inset: calc(50% - var(--depth)/2);
+  background: var(--color);
+  transform: rotate(calc(var(--percent)*3.6deg)) translateY(calc(50% - var(--width)/2));
+}
+
+.no-round:before {
+  background-size: 0 0, auto;
+}
+
+.no-round:after {
+  content: none;
+}
